@@ -1,0 +1,106 @@
+◆用語メモ
+origin：デフォルトのリポジトリ（URL）の別名。githubのコードのおいてある場所
+master：デフォルトのブランチの名前
+
+◆Github
+・ノートPCでの変更を更新する場合
+git pull 
+git add ファイル名
+git commit -m "メッセージ"
+git push origin master
+
+cmdでファイルのあるフォルダに移動
+・ローカル環境の更新
+①git init
+②git add ファイル名
+③git commit -m "add new file"
+確認：git status
+
+・リモート環境の更新
+④git remote add origin URL
+⑤git push origin master
+
+サイト上の「Add file」からドラッグ＆ドロップでファイル追加可能
+
+・他端末でコピーする場合
+①git clone URL
+
+・ブランチ
+git branch <branchname>
+git branch でブランチ一覧表示
+git checkout <branchnae>　でブランチの切り替え
+git pull origin <branchname> でブランチを更新
+
+git checkout master
+git merge <branchname>　で変更を更新
+git branch -d <branchname>　でブランチを削除（master変更後は削除）
+
+・ファイル更新
+git add <filename>
+git commit -m "comment"
+git push origin master
+
+・エラー対応
+①git add取り消し(全ファイル)
+⇒「git rm --cached -r .」
+②Untracked files (これがあるとmasterにcheckoutできない)
+⇒「git clean -f」本当にファイル削除するので注意
+
+
+◆Github for desktop
+「repository」「show in exprolor」
+Fetch originの左側のサイクルボタンをクリックしてコミット
+左側の「Changes」の下にコミットタイトルを詳細を記入
+上の「Branch」の「Create pull request」
+
+
+◆基本知識
+・clone
+リモートリポジトリをローカルリポジトリに複製
+・fork
+他人のリポジトリを自分のアカウントに複製(オリジナルリポジトリとは別のリポジトリを複製)
+forkすると自分のリポジトリから見れるようになる
+
+⇒単に公開しているソースを触ってみたいときはclone
+　forkは開発に参加する意思表示的な意味合いがある
+
+・watch
+更新されるたびに通知が来るようにできる
+
+・index
+バージョン管理したいファイルを登録する台帳のようなもの
+
+・ブランチの作成
+git checkout -b develop main　developがブランチの名前、mainがマスターの名前
+
+git branch 今作業しているファイルが見える
+
+git checkout main/develop で作業しているファイルを変更可能
+
+
+◆stash（途中で別の作業をやるとき）
+git graphにある「uncomit changed」を右クリック
+
+apply stash：変更を適用、stashは残る
+  pop stash：変更を適用してstashは破棄
+ drop stash：変更を適用しないでstashを破棄
+
+◆直近のコミットメッセージの変更
+git commit --amend -m "modify comit message"
+
+◆間違ってコミットしてしまったとき
+git reset --soft "HEAD^"
+
+◆sqush(あまり使わないほうがよい)
+git graphのコミットされているヤツを右クリック
+「rebase current branch on this commit」を選択
+上にチェックを入れてyes
+出てきた画面をpick⇒squshに変更してstart rebase
+
+
+
+◆ユーザースニペット
+「ファイル」「ユーザー設定」「ユーザースニペット」
+FortranFreeForm.json
+
+
